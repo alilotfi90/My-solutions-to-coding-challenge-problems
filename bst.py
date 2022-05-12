@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  slow_sort.py
+#  graph.py
 #  
-#  Copyright 2021 Ali Lotfi <ali@ali-Oryx-Pro>
+#  Copyright 2022 Ali Lotfi <ali@ali-Oryx-Pro>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.s
+#  GNU General Public License for more details.
 #  
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
@@ -22,31 +22,25 @@
 #  
 #  
 import numpy as np
-def slow(lis):
-	for i in range(len(lis)):
-		for j in range(i,len(lis)):
-			if lis[i]<lis[j]:
-				x=lis[j]
-				lis[j]=lis[i]
-				lis[i]=x
-	return lis
-def quick(lis1,left,right):
-	piv=lis1[(left+right)//2]
-	while lis1[left]<piv:
-		left=left+1
-	while lis1[right]>piv:
-		right=right-1	
-				
+def bst(lis,m):
+	if len(lis)==0:
+		return None
+	else:
+		left , right = 0 , len(lis)-1
+		while left <=right:
+			mid=(left+right)//2
+			if lis[mid]==m:
+				return mid
+			if lis[mid]>m:
+				right=mid-1
+			if lis[mid]<m:
+				left=mid+1
+		return mid
+
 def main(args):
-	lis=[1,5,4,3,6,1]
-	#print(slow(lis))
-	print(slow(lis))
-	a={'name':'ali','grade':'A'}
-	a.update({'name':'hi'})
-	print(a)
-	a.update({'grade':'B'})
-	print(a)
-	quick(lis,0,len(lis))
+	lis=[6,5,4,3,2,1]
+	print(bst(lis,3))	
+		
 if __name__ == '__main__':
     import sys
     sys.exit(main(sys.argv))

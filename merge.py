@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  slow_sort.py
+#  merge.py
 #  
-#  Copyright 2021 Ali Lotfi <ali@ali-Oryx-Pro>
+#  Copyright 2022 Ali Lotfi <ali@ali-Oryx-Pro>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.s
+#  GNU General Public License for more details.
 #  
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
@@ -21,32 +21,28 @@
 #  MA 02110-1301, USA.
 #  
 #  
-import numpy as np
-def slow(lis):
-	for i in range(len(lis)):
-		for j in range(i,len(lis)):
-			if lis[i]<lis[j]:
-				x=lis[j]
-				lis[j]=lis[i]
-				lis[i]=x
-	return lis
-def quick(lis1,left,right):
-	piv=lis1[(left+right)//2]
-	while lis1[left]<piv:
-		left=left+1
-	while lis1[right]>piv:
-		right=right-1	
-				
+def mergetwo(x,y):
+	z=[]
+	i=0
+	j=0
+	while i < len(x) or j < len(y):
+		if j==len(y) or (i < len(x) and x[i]<=y[j]):
+			z.append(x[i])
+			i+=1
+		else:
+			z.append(y[j])
+			j+=1
+	return z
+
 def main(args):
-	lis=[1,5,4,3,6,1]
-	#print(slow(lis))
-	print(slow(lis))
-	a={'name':'ali','grade':'A'}
-	a.update({'name':'hi'})
-	print(a)
-	a.update({'grade':'B'})
-	print(a)
-	quick(lis,0,len(lis))
+    print(complex(1,2)+complex(2,3))
+    str1="pro1"
+    str2="pro13"
+    print(str1 and str2)
+    
+    
+    return 0
+
 if __name__ == '__main__':
     import sys
     sys.exit(main(sys.argv))

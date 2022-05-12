@@ -30,12 +30,19 @@ def slow(lis):
 				lis[j]=lis[i]
 				lis[i]=x
 	return lis
-def quick(lis1,left,right):
-	piv=lis1[(left+right)//2]
-	while lis1[left]<piv:
-		left=left+1
-	while lis1[right]>piv:
-		right=right-1	
+def quick(lis):
+	if len(lis)<=1:
+		return lis
+	else:
+		piv=lis.pop()
+		lis_smaller=[]
+		lis_greater=[]
+		for i in range(len(lis)):
+			if lis[i]<=piv:
+				lis_greater.append(lis[i])
+			else:
+				lis_smaller.append(lis[i])
+		return quick(lis_smaller)+[piv]+quick(lis_greater)		
 				
 def main(args):
 	lis=[1,5,4,3,6,1]
@@ -46,7 +53,7 @@ def main(args):
 	print(a)
 	a.update({'grade':'B'})
 	print(a)
-	quick(lis,0,len(lis))
+	print(quick(lis))
 if __name__ == '__main__':
     import sys
     sys.exit(main(sys.argv))

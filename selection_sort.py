@@ -22,31 +22,33 @@
 #  
 #  
 import numpy as np
-def slow(lis):
+def select_sort(lis):
+	lis1=lis
+	index_list=range(0,len(lis1)-1)
+	
+	for i in index_list:
+		min_index=i
+		for j in range(i,len(lis1)):
+			if lis1[j]<lis1[min_index]:
+				min_index=j
+		if min_index!=i:
+			lis1[i] , lis1[min_index] = lis1[min_index] , lis1[i]  
+	return lis1
+def insertion_sort(lis):  
+	lis1=[]
 	for i in range(len(lis)):
-		for j in range(i,len(lis)):
-			if lis[i]<lis[j]:
-				x=lis[j]
-				lis[j]=lis[i]
-				lis[i]=x
-	return lis
-def quick(lis1,left,right):
-	piv=lis1[(left+right)//2]
-	while lis1[left]<piv:
-		left=left+1
-	while lis1[right]>piv:
-		right=right-1	
-				
+		lis1.append(lis[i])
+		j=i-1
+		while j>=0 and lis1[i]<lis1[j]:
+			lis1[i] , lis1[j] = lis1[j] , lis1[i]
+	return lis1
+def change(C,n):
+	C.sort()
+	return n
 def main(args):
-	lis=[1,5,4,3,6,1]
-	#print(slow(lis))
-	print(slow(lis))
-	a={'name':'ali','grade':'A'}
-	a.update({'name':'hi'})
-	print(a)
-	a.update({'grade':'B'})
-	print(a)
-	quick(lis,0,len(lis))
+	C=[2,5,3,6]
+	
+	print(change(C,5)) 			 
 if __name__ == '__main__':
     import sys
     sys.exit(main(sys.argv))
