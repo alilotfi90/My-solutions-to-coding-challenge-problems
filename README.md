@@ -1,2 +1,2 @@
 # Some-of-my-codes
-Python codes to many interview problems available.
+These are my Python codes that I do for fun. It's a hobby of mine, some of the algorithms I learned from the course "Design and Analysis of Algorithms".
