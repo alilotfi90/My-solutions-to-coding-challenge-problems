@@ -22,7 +22,7 @@ def euler_phi(n):
   for i in range(1,n):
     if i==1:
       count+=1
-    elif i !=1 and n%i==1:
+    elif i !=1 and eucli(n,i)==1:
       print('i is',i)
       count+=1
     else:
