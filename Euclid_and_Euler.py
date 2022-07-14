@@ -23,15 +23,14 @@ def euler_phi(n):
     if i==1:
       count+=1
     elif i !=1 and eucli(n,i)==1:
-      print('i is',i)
       count+=1
-    else:
-      continue
   return count
 
 def main():
   print(eucli(54,30))
   print(isprime(1))
-  print(euler_phi(4))
+  print(euler_phi(15))
+  print(euler_phi(29*11),'and',10*28)
+  
 if __name__ == "__main__":
   main()
