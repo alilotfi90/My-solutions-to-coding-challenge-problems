@@ -16,16 +16,8 @@ def palindrome_partition(string):
     dfs(string,0,[])
     return res
 def main(args):
-    st="bb"
-    print(st[::-1])
-    print(is_pali(st))
     # use dfs, with inputs: 1- input string 2- start index of last partition, 3- path
     string="strinabab"
-    n=len(string)
-    print(n)
-    i=2
-    print(string[i:i+1])
-    print(string[i+1:i+2])
     print(palindrome_partition(string))
     # stopping criteria could be index==n, that is when string[index:] is empty
     # furthermore, if string[index:] is not a palindrome, we want to skip this path
