@@ -1,4 +1,5 @@
 0-1-knapsack.py: Solves the 0/1 Knapsack problem using dynamic programming.
+
 activity_selection_DP.py: Implements dynamic programming to solve the activity selection problem.
 activity_selection_problem_greedy.py: Provides a greedy algorithm solution for the activity selection problem.
 all_anagrams_hash_and_window.py: Finds all anagrams of a given string using hashing or sliding window technique.
